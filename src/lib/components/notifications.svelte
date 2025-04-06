@@ -1,5 +1,6 @@
 <script>
     import AlertCircle from "@lucide/svelte/icons/alert-circle";
+    import ArrowRight from "@lucide/svelte/icons/arrow-right";
     import CheckCircle from "@lucide/svelte/icons/check-circle";
     import FileText from "@lucide/svelte/icons/file-text";
     import RefreshCw from "@lucide/svelte/icons/refresh-cw";
@@ -118,8 +119,8 @@
     </ScrollArea>
 
     <div class="w-full p-3 items-end flex flex-1">
-        <Button class="w-full" variant="secondary" href="/notifications"
-            >View all notifications</Button
-        >
+        <Button class="w-full" variant="outline" href="/notifications"
+            >View all notifications <ArrowRight />
+        </Button>
     </div>
 </div>
