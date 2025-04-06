@@ -14,9 +14,9 @@
     } = $props();
 </script>
 
-<Sidebar.Inset class="border !shadow-sm flex flex-col relative bg-white/60">
+<Sidebar.Inset class="border !shadow-xl flex flex-col relative bg-white/60">
     <header
-        class="flex h-14 shrink-0 items-center gap-2 border-b w-full shadow-[inset_0_1px_0_0_white] rounded-t-lg"
+        class="flex h-14 shrink-0 items-center gap-2 border-b w-full shadow-[inset_0_1px_0_0_white] rounded-t-xl"
     >
         <div class="flex items-center gap-2 px-5">
             <Sidebar.Trigger class="-ml-1" />
