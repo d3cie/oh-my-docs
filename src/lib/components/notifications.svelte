@@ -12,7 +12,8 @@
         {
             id: 1,
             title: "Contract Expiring Soon",
-            description: "Service Agreement with Acme Inc expires in 15 days",
+            description:
+                "Service Agreement with Acme Inc with the description 'Monthly ACME Payment' expires in 15 days",
             time: "2 hours ago",
             icon: AlertCircle,
             iconClass: "text-orange-500",
@@ -20,7 +21,7 @@
         {
             id: 2,
             title: "Document Uploaded",
-            description: "New NDA document has been uploaded",
+            description: "New document has been uploaded by user @mike",
             time: "Yesterday",
             icon: FileText,
             iconClass: "text-blue-500",
@@ -28,7 +29,8 @@
         {
             id: 3,
             title: "Renewal Completed",
-            description: "Software Subscription has been renewed",
+            description:
+                "Software Subscription with the description 'Mintlify monthly' has been renewed",
             time: "2 days ago",
             icon: CheckCircle,
             iconClass: "text-green-500",
@@ -102,17 +104,17 @@
                             <p
                                 class="text-sm font-medium flex items-center gap-2"
                             >
-                                {notification.title}
+                                {notification.title} -
+                                <span class="text-muted-foreground">
+                                    {notification.time}
+                                </span>
                             </p>
                         </div>
                         <div
                             class="border-l pl-6 ml-3 pb-4 [mask-image:linear-gradient(to_bottom,_black_70%,_transparent)]"
                         >
-                            <p class="text-xs text-muted-foreground">
+                            <p class="text-sm text-muted-foreground">
                                 {notification.description}
-                            </p>
-                            <p class="text-xs text-muted-foreground">
-                                {notification.time}
                             </p>
                         </div>
                     </div>
@@ -125,7 +127,7 @@
     </ScrollArea>
 
     <div class="w-full p-3 items-end flex flex-1">
-        <Button class="w-full" variant="outline" href="/notifications"
+        <Button class="w-full" variant="secondary" href="/notifications"
             >View all notifications <ArrowRight />
         </Button>
     </div>

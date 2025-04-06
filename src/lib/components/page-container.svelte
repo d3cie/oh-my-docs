@@ -1,7 +1,7 @@
 <script lang="ts">
+    import { Separator } from "$lib/components/ui/separator";
     import * as Sidebar from "$lib/components/ui/sidebar";
     import type { Snippet } from "svelte";
-    import Separator from "./ui/separator/separator.svelte";
 
     let {
         children,
@@ -16,12 +16,12 @@
 
 <Sidebar.Inset class="border !shadow flex flex-col relative bg-white/60">
     <header
-        class="flex h-14 shrink-0 items-center gap-2 border-b w-full shadow-[inset_0_1px_0_0_white] rounded-t-xl"
+        class="flex p-1.5 shrink-0 items-center gap-2 border-b w-full shadow-[inset_0_1px_0_0_white] rounded-t-xl"
     >
-        <div class="flex items-center gap-2 px-5">
-            <Sidebar.Trigger class="-ml-1" />
-            <Separator orientation="vertical" class="mr-1 ml-1 h-6" />
-            <span class="text-secondary-foreground font-semibold mt-0.5">
+        <div class="flex items-center gap-2 px-2">
+            <Sidebar.Trigger />
+            <Separator orientation="vertical" class="mr-1 ml-0.5 h-7" />
+            <span class="text-secondary-foreground font-semibold">
                 {title}
             </span>
         </div>

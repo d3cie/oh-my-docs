@@ -15,7 +15,7 @@
 	bind:this={ref}
 	class={cn(
 		"bg-background relative flex flex-1 flex-col",
-		"sm:h-[calc(100dvh-theme(spacing.4))] md:mt-4 md:peer-data-[state=collapsed]:ml-2 md:ml-0 md:rounded-tl-xl md:shadow",
+		"h-[100dvh] md:h-[calc(100dvh-theme(spacing.6))] md:my-3 md:peer-data-[state=collapsed]:ml-2 md:ml-0 md:rounded-l-xl md:shadow",
 		className,
 	)}
 	{...restProps}

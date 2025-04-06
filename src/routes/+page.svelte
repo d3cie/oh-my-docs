@@ -15,9 +15,9 @@
     import * as DropdownMenu from "$lib/components/ui/dropdown-menu";
 </script>
 
-<PageContainer title="Dashboard">
+<PageContainer title="Peasy - Dashboard">
     {#snippet actions()}
-        <div class="pr-2 flex gap-2">
+        <div class="flex gap-2">
             <Button
                 class="lg:w-48 size-9 shadow-none lg:justify-start lg:!text-muted-foreground lg:cursor-text !bg-transparent lg:pr-2"
                 variant="outline"
