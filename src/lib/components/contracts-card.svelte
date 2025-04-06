@@ -64,6 +64,20 @@
             description: "Quarterly Microsoft Azure services.",
             dueDate: "in 30 days",
         },
+        {
+            id: "CT008",
+            name: "Hetzner Services",
+            totalAmount: "$322.00",
+            description: "Monthly Microsoft Azure services.",
+            dueDate: "in 30 days",
+        },
+        {
+            id: "CT010",
+            name: "Mintlify",
+            totalAmount: "$29.00",
+            description: "Monthly Mintlify subscroption for docs.",
+            dueDate: "in 30 days",
+        },
     ];
 </script>
 
@@ -78,7 +92,7 @@
         >
             <Select.Root value={"Due"} type="single" allowDeselect={false}>
                 <Select.Trigger
-                    class="z-10 h-6 w-fit justify-start gap-1 shadow-none border-none bg-secondary p-0 px-2 text-sm font-semibold [&_svg]:size-3"
+                    class="z-10 h-6 w-fit justify-start gap-1 shadow-none border-none bg-secondary/60 p-0 px-2 text-sm font-semibold [&_svg]:size-3"
                 >
                     Due Contracts
                 </Select.Trigger>
