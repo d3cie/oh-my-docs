@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { HTMLTdAttributes } from "svelte/elements";
-	import type { WithElementRef } from "bits-ui";
 	import { cn } from "$lib/utils.js";
+	import type { WithElementRef } from "bits-ui";
+	import type { HTMLTdAttributes } from "svelte/elements";
 
 	let {
 		ref = $bindable(null),
@@ -14,8 +14,8 @@
 <td
 	bind:this={ref}
 	class={cn(
-		"p-2 align-middle [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
-		className
+		"p-2 align-middle [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px] text-sm",
+		className,
 	)}
 	{...restProps}
 >

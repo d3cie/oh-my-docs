@@ -1,51 +1,55 @@
 <script lang="ts">
-    import TrendingDown from "@lucide/svelte/icons/trending-down";
-    import TrendingUp from "@lucide/svelte/icons/trending-up";
+    import type { Snippet } from "svelte";
 
     let {
-        total,
         title,
         icon,
-        trend,
-        trendPc,
+        total,
+        hint,
+        link,
     }: {
-        total: string;
         title: string;
         icon: any;
-        trend: "up" | "down";
-        trendPc: number;
+        total: string;
+        hint: Snippet;
+        link?: string;
     } = $props();
 </script>
 
 <div
-    class="rounded-lg border text-card-foreground relative z-10 bg-background/60 shadow-none sm:shadow-md backdrop-blur-none sm:backdrop-blur-sm"
+    class="hover:bg-blue-500/5 group transition-colors shadow-sm rounded-lg pt-4 bg-gray-100 border relative"
 >
     <div
-        class="p-3 sm:p-4 md:p-6 flex flex-row items-center justify-between space-y-0 pb-0 md:pb-2"
+        class={"rounded-lg -m-px border group-hover:border-primary transition-colors text-card-foreground relative z-10 bg-gradient-to-bl from-blue-500/5 via-background/40  to-white  cursor-pointer shadow-[inset_0_1px_0_0_white] backdrop-blur-none h-min"}
     >
-        <div class="tracking-tight text-xs font-medium md:text-sm">
-            {title}
-        </div>
+        <div class="p-3 flex flex-row items-center justify-between">
+            <div
+                class="tracking-tight text-xs font-medium md:text-sm flex items-center gap-1"
+            >
+                {title}
+            </div>
 
-        <!-- svelte-ignore svelte_component_deprecated: @lucide/svelte version not compatible with svelte 5 syntax -->
-        <svelte:component
-            this={icon}
-            class="size-3 md:size-4 text-muted-foreground"
-        ></svelte:component>
-    </div>
-    <div class="p-3 sm:p-4 md:p-6 pt-0 md:pt-0 sm:pt-0">
-        <h2 class="text-base font-bold md:text-2xl">{total}</h2>
-        <span
-            class="flex items-center gap-2 text-xs text-muted-foreground md:text-sm"
-        >
-            <p class="text-xs text-muted-foreground md:text-sm">
-                {trendPc}% up from last month
-            </p>
-            {#if trend == "up"}
-                <TrendingUp class="size-3 text-muted-foreground md:size-4" />
-            {:else}
-                <TrendingDown class="size-3 text-muted-foreground md:size-4" />
-            {/if}
-        </span>
+            <div
+                class="size-7 border rounded-full flex items-center justify-center absolute -top-3 right-3 bg-gray-50 shadow-[inset_0_1px_0_0_white]"
+            >
+                <!-- svelte-ignore svelte_component_deprecated -->
+                <svelte:component
+                    this={icon}
+                    class="size-3.5 text-secondary-foreground stroke-[1.8px]"
+                ></svelte:component>
+            </div>
+        </div>
+        <div class="px-3 pb-2">
+            <h2 class="text-base font-bold md:text-xl">{total}</h2>
+            <span
+                class="flex items-center gap-2 text-xs text-muted-foreground md:text-sm"
+            >
+                <p
+                    class="text-xs text-muted-foreground md:text-sm flex items-center gap-1"
+                >
+                    {@render hint()}
+                </p>
+            </span>
+        </div>
     </div>
 </div>

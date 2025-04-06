@@ -1,29 +1,26 @@
 <script lang="ts">
 	import AppSidebar from "$lib/components/app-sidebar.svelte";
-	import * as Breadcrumb from "$lib/components/ui/breadcrumb";
-	import { Separator } from "$lib/components/ui/separator";
 	import * as Sidebar from "$lib/components/ui/sidebar";
 
 	import "../app.css";
+
+	import "@fontsource-variable/nunito-sans";
+
 	let { children } = $props();
 </script>
 
 <Sidebar.Provider>
+	<div class="absolute inset-0 overflow-hidden w-full h-full">
+		<div
+			class="absolute top-10 left-10 w-72 h-72 bg-blue-400 rounded-full blur-[220px] opacity-5"
+		></div>
+		<div
+			class="absolute bottom-20 right-20 w-96 h-96 bg-blue-400 rounded-full blur-[220px] opacity-10"
+		></div>
+		<div
+			class="absolute top-1/2 left-1/2 w-80 h-80 bg-blue-400 rounded-full blur-[220px] opacity-5 translate-x-[-50%] translate-y-[-50%]"
+		></div>
+	</div>
 	<AppSidebar />
-	<Sidebar.Inset>
-		<header class="flex h-16 shrink-0 items-center gap-2">
-			<div class="flex items-center gap-2 px-4">
-				<Sidebar.Trigger class="-ml-1" />
-				<Separator orientation="vertical" class="mr-2 h-4" />
-				<Breadcrumb.Root>
-					<Breadcrumb.List>
-						<Breadcrumb.Item class="hidden md:block">
-							<Breadcrumb.Link href="#">Overview</Breadcrumb.Link>
-						</Breadcrumb.Item>
-					</Breadcrumb.List>
-				</Breadcrumb.Root>
-			</div>
-		</header>
-		{@render children()}
-	</Sidebar.Inset>
+	{@render children()}
 </Sidebar.Provider>

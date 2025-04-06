@@ -1,11 +1,38 @@
-import { fontFamily } from "tailwindcss/defaultTheme";
+import layerstack from '@layerstack/tailwind/plugin';
 import type { Config } from "tailwindcss";
 import tailwindcssAnimate from "tailwindcss-animate";
+import colors from "tailwindcss/colors";
+import { fontFamily } from "tailwindcss/defaultTheme";
 
 const config: Config = {
 	darkMode: ["class"],
-	content: ["./src/**/*.{html,js,svelte,ts}"],
+	content: ["./src/**/*.{html,js,svelte,ts}", './node_modules/layerchart/**/*.{svelte,js}'],
 	safelist: ["dark"],
+	ux: {
+		themes: {
+			light: {
+				primary: colors['orange']['500'],
+				'primary-content': 'white',
+				secondary: colors['blue']['500'],
+				'surface-100': 'white',
+				'surface-200': colors['gray']['100'],
+				'surface-300': colors['gray']['300'],
+				'surface-content': colors['gray']['900'],
+				'color-scheme': 'light'
+			},
+			dark: {
+				primary: colors['orange']['500'],
+				'primary-content': 'white',
+				secondary: colors['blue']['500'],
+				'surface-100': colors['zinc']['800'],
+				'surface-200': colors['zinc']['900'],
+				'surface-300': colors['zinc']['950'],
+				'surface-content': colors['zinc']['100'],
+				'color-scheme': 'dark'
+			},
+		},
+	},
+
 	theme: {
 		container: {
 			center: true,
@@ -58,7 +85,7 @@ const config: Config = {
 					"accent-foreground": "hsl(var(--sidebar-accent-foreground))",
 					border: "hsl(var(--sidebar-border))",
 					ring: "hsl(var(--sidebar-ring))",
-        		},
+				},
 			},
 			borderRadius: {
 				xl: "calc(var(--radius) + 4px)",
@@ -67,7 +94,8 @@ const config: Config = {
 				sm: "calc(var(--radius) - 4px)"
 			},
 			fontFamily: {
-				sans: [...fontFamily.sans]
+				sans: ["Nunito Sans Variable", ...fontFamily.sans],
+				serif: ['Lora Variable', 'sans-serif'],
 			},
 			keyframes: {
 				"accordion-down": {
@@ -84,13 +112,14 @@ const config: Config = {
 				},
 			},
 			animation: {
-        		"accordion-down": "accordion-down 0.2s ease-out",
-        		"accordion-up": "accordion-up 0.2s ease-out",
-       			"caret-blink": "caret-blink 1.25s ease-out infinite",
-      		},
+				"accordion-down": "accordion-down 0.2s ease-out",
+				"accordion-up": "accordion-up 0.2s ease-out",
+				"caret-blink": "caret-blink 1.25s ease-out infinite",
+			},
+
 		},
 	},
-	plugins: [tailwindcssAnimate],
+	plugins: [layerstack, tailwindcssAnimate],
 };
 
 export default config;

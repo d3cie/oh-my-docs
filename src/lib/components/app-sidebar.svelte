@@ -1,5 +1,7 @@
 <script lang="ts" module>
-	import SquareTerminal from "@lucide/svelte/icons/square-terminal";
+	import CircleGauge from "@lucide/svelte/icons/circle-gauge";
+	import FileText from "@lucide/svelte/icons/file-text";
+	import Settings2 from "@lucide/svelte/icons/settings-2";
 
 	const data = {
 		user: {
@@ -9,10 +11,45 @@
 		},
 		navMain: [
 			{
-				title: "Overview",
+				title: "Dashboard",
 				url: "/",
-				icon: SquareTerminal,
+				icon: CircleGauge,
 				isActive: true,
+			},
+			{
+				title: "Contracts",
+				url: "/contracts",
+				icon: FileText,
+				isActive: false,
+				items: [
+					{
+						title: "Postmark",
+						url: "#",
+					},
+					{
+						title: "Aws",
+						url: "#",
+					},
+				],
+			},
+			{
+				title: "Settings",
+				url: "#",
+				icon: Settings2,
+				items: [
+					{
+						title: "General",
+						url: "#",
+					},
+					{
+						title: "Team",
+						url: "#",
+					},
+					{
+						title: "Billing",
+						url: "#",
+					},
+				],
 			},
 		],
 	};
@@ -46,9 +83,9 @@
 							<div
 								class="grid flex-1 text-left text-sm leading-tight"
 							>
-								<span class="truncate font-semibold">Peasy</span
+								<span class="truncate font-semibold"
+									>Oh my docs</span
 								>
-								<span class="truncate text-xs">Free plan</span>
 							</div>
 						</a>
 					{/snippet}
