@@ -83,25 +83,31 @@
     </div>
 
     <ScrollArea
-        class="[mask-image:linear-gradient(to_bottom,_black_50%,_transparent)]"
+        class="[mask-image:linear-gradient(to_bottom,_black_75%,_transparent)]"
     >
-        <div class="flex gap-4 h-full p-3 sm:p-4 flex-col min-h-0">
+        <div class="flex h-full p-3 sm:p-4 flex-col min-h-0">
             {#each notifications as notification}
                 <div class="flex gap-3">
-                    <div class="grid gap-1">
+                    <div class="grid">
                         <div class="flex items-center gap-3">
-                            <!-- svelte-ignore svelte_component_deprecated: @lucide/svelte version not compatible with svelte 5 syntax -->
-                            <svelte:component
-                                this={notification.icon}
-                                class="size-4 inline text-muted-foreground {notification.iconClass}"
-                            ></svelte:component>
+                            <div
+                                class="border rounded-full size-6 flex items-center justify-center bg-white"
+                            >
+                                <!-- svelte-ignore svelte_component_deprecated: @lucide/svelte version not compatible with svelte 5 syntax -->
+                                <svelte:component
+                                    this={notification.icon}
+                                    class="size-4 inline text-muted-foreground {notification.iconClass}"
+                                ></svelte:component>
+                            </div>
                             <p
                                 class="text-sm font-medium flex items-center gap-2"
                             >
                                 {notification.title}
                             </p>
                         </div>
-                        <div class="border-l pl-6 ml-2">
+                        <div
+                            class="border-l pl-6 ml-3 pb-4 [mask-image:linear-gradient(to_bottom,_black_70%,_transparent)]"
+                        >
                             <p class="text-xs text-muted-foreground">
                                 {notification.description}
                             </p>
